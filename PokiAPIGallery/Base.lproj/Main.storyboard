@@ -1,13 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EM4-E5-7Rp">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="wEI-so-GUi">
+            <objects>
+                <navigationController id="EM4-E5-7Rp" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LcJ-gl-9Gk">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BWH-dM-QEf" kind="relationship" relationship="rootViewController" id="Cv7-lN-C1I"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="APE-rE-CSN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1451" y="98"/>
+        </scene>
+        <!--Poke Gallery-->
+        <scene sceneID="7hX-TI-2SD">
+            <objects>
+                <collectionViewController id="BWH-dM-QEf" customClass="GalleryCollectionViewController" customModule="PokiAPIGallery" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="aD5-bp-BFj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BfZ-eX-hqg">
+                            <size key="itemSize" width="64" height="80"/>
+                            <size key="estimatedItemSize" width="64" height="64"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="8" minY="8" maxX="8" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="poke" id="kMU-S3-DIT" customClass="GalleryCollectionViewCell" customModule="PokiAPIGallery" customModuleProvider="target">
+                                <rect key="frame" x="8" y="8" width="64" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="XFN-KK-RfP">
+                                    <rect key="frame" x="0.0" y="0.0" width="64" height="90"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dxC-C9-73s">
+                                            <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="64" id="B3Y-Sw-mSh"/>
+                                                <constraint firstAttribute="height" constant="64" id="FtW-Pf-mrl"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zS2-LG-yWN">
+                                            <rect key="frame" x="8" y="66" width="48" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="dxC-C9-73s" firstAttribute="top" secondItem="XFN-KK-RfP" secondAttribute="top" id="5r2-xx-jur"/>
+                                        <constraint firstAttribute="bottom" secondItem="dxC-C9-73s" secondAttribute="bottom" constant="26" id="Si3-By-RZC"/>
+                                        <constraint firstAttribute="trailing" secondItem="dxC-C9-73s" secondAttribute="trailing" id="kuj-dk-5ve"/>
+                                        <constraint firstItem="zS2-LG-yWN" firstAttribute="trailing" secondItem="XFN-KK-RfP" secondAttribute="trailingMargin" id="m21-N4-9UV"/>
+                                        <constraint firstItem="zS2-LG-yWN" firstAttribute="centerX" secondItem="dxC-C9-73s" secondAttribute="centerX" id="mJL-P0-Tpp"/>
+                                        <constraint firstItem="zS2-LG-yWN" firstAttribute="top" secondItem="dxC-C9-73s" secondAttribute="bottom" constant="2" id="pRb-bI-PDr"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <size key="customSize" width="64" height="90"/>
+                                <connections>
+                                    <outlet property="image" destination="dxC-C9-73s" id="0qb-2e-eo8"/>
+                                    <outlet property="pokeName" destination="zS2-LG-yWN" id="7aO-YA-C1X"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="BWH-dM-QEf" id="hGE-lR-MCc"/>
+                            <outlet property="delegate" destination="BWH-dM-QEf" id="h5o-dN-GWD"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Poke Gallery" id="hAH-8d-ecj">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="WdC-8R-y32">
+                            <connections>
+                                <action selector="addButton:" destination="BWH-dM-QEf" id="pzu-4x-VfA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Nv-rx-VG8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-633.33333333333337" y="97.767857142857139"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>

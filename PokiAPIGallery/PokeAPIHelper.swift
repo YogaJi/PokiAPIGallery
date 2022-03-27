@@ -67,7 +67,7 @@ class PokeAPIHelper {
                 task.resume()
             }
             group.notify(queue: .main){
-                print(imageURLs)
+                //print(imageURLs)
                 callback(imageURLs)
             }
         }
