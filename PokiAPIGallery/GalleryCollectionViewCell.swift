@@ -9,6 +9,7 @@ import UIKit
 
 class GalleryCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var pokeName: UILabel!
+    //@IBOutlet weak var pokeName: UILabel!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var image: UIImageView!
 }

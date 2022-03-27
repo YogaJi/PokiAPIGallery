@@ -13,6 +13,7 @@ struct Pokemons: Codable{
 
 struct Pokemon: Codable{
     var url: String
+    //var name: String
 }
 
 struct PokeImage: Codable{

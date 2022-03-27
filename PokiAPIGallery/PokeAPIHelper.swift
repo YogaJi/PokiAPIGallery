@@ -28,10 +28,12 @@ class PokeAPIHelper {
                 do{
                     let pokemons = try decoder.decode(Pokemons.self, from: data)
                     var urls = [URL]()
+                    //var pokenames = [String]()
                     
                     
                     for pokemon in pokemons.results{
                         urls.append(URL(string: pokemon.url)!)
+                        //pokenames.append(pokemon.name)
                     }
                     callback(urls)
                     
@@ -44,6 +46,34 @@ class PokeAPIHelper {
         }
         task.resume()
     }
+//    static func fetchPokeNames(callback: @escaping ([String])->Void){
+//        guard let url = URL(string: baseURL)
+//        else {return}
+//        let request = URLRequest(url: url)
+//        let task = session.dataTask(with: request) {
+//            (data, response, error) -> Void in
+//            
+//            if let data = data {
+//                let decoder = JSONDecoder()
+//                do{
+//                    let pokemons = try decoder.decode(Pokemons.self, from: data)
+//                    var pokenames = [String]()
+//                    
+//                    
+//                    for pokemon in pokemons.results{
+//                        pokenames.append(pokemon.name)
+//                    }
+//                    callback(pokenames)
+//                    
+//                } catch let err {
+//                    print(err)
+//                }
+//            } else if let error = error {
+//                print(error)
+//            }
+//        }
+//        task.resume()
+//    }
     
     static func fetchPokeImageURL(callback: @escaping ([URL])->Void){
         var imageURLs = [URL]()
@@ -72,6 +102,8 @@ class PokeAPIHelper {
             }
         }
     }
+    
+    
     
     static func fetchPokeImage(pokeImage: URL, callback: @escaping (UIImage)->Void){
         let request = URLRequest(url: pokeImage)

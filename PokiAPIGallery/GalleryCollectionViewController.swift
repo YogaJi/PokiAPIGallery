@@ -11,16 +11,12 @@ private let reuseIdentifier = "poke"
 
 class GalleryCollectionViewController: UICollectionViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     var imagePokeGallery = [UIImage]()
+    //var pokeNameList = [String]()
 
     @IBAction func addButton(_ sender: Any) {
         let imagePicker = UIImagePickerController()
-        
-        if UIImagePickerController.isSourceTypeAvailable(.camera){
-            imagePicker.sourceType = .camera
-        }else{
-            imagePicker.sourceType = .photoLibrary
-        }
-        
+
+        imagePicker.sourceType = .photoLibrary
         imagePicker.delegate = self
         present(imagePicker, animated: true, completion: nil)
     }
@@ -35,23 +31,19 @@ class GalleryCollectionViewController: UICollectionViewController, UIImagePicker
     override func viewDidLoad() {
         super.viewDidLoad()
         PokeAPIHelper.fetchAllImages { images in
-            self.imagePokeGallery = images
-            for i in 0...150{
-                self.imagePokeGallery.append(images[i])
-                
+            
+            for _ in 0...100000{
+                continue
             }
-            print(self.imagePokeGallery)
+            self.imagePokeGallery = images
             self.collectionView.reloadData()
         }
-  
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+//        PokeAPIHelper.fetchPokeNames{ names in
+//            self.pokeNameList = names
+//            
+//        }
 
-        // Register cell classes
-//        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
     }
 
     /*
@@ -81,10 +73,18 @@ class GalleryCollectionViewController: UICollectionViewController, UIImagePicker
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "poke", for: indexPath) as! GalleryCollectionViewCell
+        
+        cell.spinner.startAnimating()
+        for _ in 0...100000{
+            continue
+        }
+        DispatchQueue.main.async{
+            cell.spinner.isHidden = true
+            cell.image.image = self.imagePokeGallery[indexPath.row]
+        }
 
-        cell.image.image = imagePokeGallery[indexPath.row]
-        // Configure the cell
-        cell.backgroundColor = .brown
+        //cell.pokeName.text = self.pokeNameList[indexPath.row]
+        cell.backgroundColor = .white
         return cell
     }
 

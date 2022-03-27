@@ -13,9 +13,14 @@
         <scene sceneID="wEI-so-GUi">
             <objects>
                 <navigationController id="EM4-E5-7Rp" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="LcJ-gl-9Gk">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.7799873737373737" green="0.7085286457052582" blue="0.0086876418956486519" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="BWH-dM-QEf" kind="relationship" relationship="rootViewController" id="Cv7-lN-C1I"/>
@@ -33,48 +38,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BfZ-eX-hqg">
-                            <size key="itemSize" width="64" height="80"/>
-                            <size key="estimatedItemSize" width="64" height="64"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Riq-Ro-tps">
+                            <size key="itemSize" width="84" height="84"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="8" minY="8" maxX="8" maxY="0.0"/>
+                            <inset key="sectionInset" minX="14" minY="10" maxX="14" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="poke" id="kMU-S3-DIT" customClass="GalleryCollectionViewCell" customModule="PokiAPIGallery" customModuleProvider="target">
-                                <rect key="frame" x="8" y="8" width="64" height="90"/>
+                                <rect key="frame" x="14" y="10" width="84" height="84"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="XFN-KK-RfP">
-                                    <rect key="frame" x="0.0" y="0.0" width="64" height="90"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="84" height="84"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dxC-C9-73s">
-                                            <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="84" height="84"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="64" id="B3Y-Sw-mSh"/>
-                                                <constraint firstAttribute="height" constant="64" id="FtW-Pf-mrl"/>
+                                                <constraint firstAttribute="height" constant="84" id="IPV-cg-QHs"/>
+                                                <constraint firstAttribute="width" constant="84" id="aNg-mN-AoJ"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zS2-LG-yWN">
-                                            <rect key="frame" x="8" y="66" width="48" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="VhI-ZQ-rPb">
+                                            <rect key="frame" x="23.5" y="23.5" width="37" height="37"/>
+                                        </activityIndicatorView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="dxC-C9-73s" firstAttribute="top" secondItem="XFN-KK-RfP" secondAttribute="top" id="5r2-xx-jur"/>
-                                        <constraint firstAttribute="bottom" secondItem="dxC-C9-73s" secondAttribute="bottom" constant="26" id="Si3-By-RZC"/>
-                                        <constraint firstAttribute="trailing" secondItem="dxC-C9-73s" secondAttribute="trailing" id="kuj-dk-5ve"/>
-                                        <constraint firstItem="zS2-LG-yWN" firstAttribute="trailing" secondItem="XFN-KK-RfP" secondAttribute="trailingMargin" id="m21-N4-9UV"/>
-                                        <constraint firstItem="zS2-LG-yWN" firstAttribute="centerX" secondItem="dxC-C9-73s" secondAttribute="centerX" id="mJL-P0-Tpp"/>
-                                        <constraint firstItem="zS2-LG-yWN" firstAttribute="top" secondItem="dxC-C9-73s" secondAttribute="bottom" constant="2" id="pRb-bI-PDr"/>
+                                        <constraint firstAttribute="bottom" secondItem="dxC-C9-73s" secondAttribute="bottom" id="81I-au-4x0"/>
+                                        <constraint firstItem="dxC-C9-73s" firstAttribute="top" secondItem="XFN-KK-RfP" secondAttribute="top" id="BOy-fW-jeX"/>
+                                        <constraint firstItem="VhI-ZQ-rPb" firstAttribute="centerY" secondItem="dxC-C9-73s" secondAttribute="centerY" id="FR7-YL-7Ms"/>
+                                        <constraint firstItem="VhI-ZQ-rPb" firstAttribute="centerX" secondItem="dxC-C9-73s" secondAttribute="centerX" id="IGg-fK-65q"/>
+                                        <constraint firstAttribute="trailing" secondItem="dxC-C9-73s" secondAttribute="trailing" id="vna-Ty-ZUd"/>
+                                        <constraint firstItem="dxC-C9-73s" firstAttribute="leading" secondItem="XFN-KK-RfP" secondAttribute="leading" id="zUX-7o-NXK"/>
                                     </constraints>
                                 </collectionViewCellContentView>
-                                <size key="customSize" width="64" height="90"/>
+                                <size key="customSize" width="84" height="84"/>
                                 <connections>
                                     <outlet property="image" destination="dxC-C9-73s" id="0qb-2e-eo8"/>
-                                    <outlet property="pokeName" destination="zS2-LG-yWN" id="7aO-YA-C1X"/>
+                                    <outlet property="spinner" destination="VhI-ZQ-rPb" id="d0X-mH-yr0"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -85,6 +86,7 @@
                     </collectionView>
                     <navigationItem key="navigationItem" title="Poke Gallery" id="hAH-8d-ecj">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="WdC-8R-y32">
+                            <color key="tintColor" systemColor="systemYellowColor"/>
                             <connections>
                                 <action selector="addButton:" destination="BWH-dM-QEf" id="pzu-4x-VfA"/>
                             </connections>
@@ -130,6 +132,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
