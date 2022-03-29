@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -96,37 +95,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Nv-rx-VG8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-633.33333333333337" y="97.767857142857139"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PokiAPIGallery" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pq6-ce-g0P">
-                                <rect key="frame" x="87" y="384" width="240" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="5EJ-wO-sjl"/>
-                                    <constraint firstAttribute="height" constant="128" id="xhe-Wj-lj6"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Pq6-ce-g0P" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="R4Q-c5-no7"/>
-                            <constraint firstItem="Pq6-ce-g0P" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="bYt-OM-tte"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="pokeimage" destination="Pq6-ce-g0P" id="ilN-Tj-bCq"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="114" y="98"/>
         </scene>
     </scenes>
     <resources>

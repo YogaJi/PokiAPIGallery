@@ -11,25 +11,29 @@ private let reuseIdentifier = "poke"
 
 class GalleryCollectionViewController: UICollectionViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     var imagePokeGallery = [UIImage]()
-    //var pokeNameList = [String]()
 
+    //create the button to add images to the collection view
     @IBAction func addButton(_ sender: Any) {
+        //create UIImage picker controller to get system photo library and set present animation
         let imagePicker = UIImagePickerController()
 
         imagePicker.sourceType = .photoLibrary
         imagePicker.delegate = self
         present(imagePicker, animated: true, completion: nil)
     }
-    
+    //set function using UIImage picker controller to get image from system original image and set it as UIImage type
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        //add UIImage to the collection view's array
         imagePokeGallery.append(image)
         collectionView.reloadData()
+        //dismiss the function
         dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //run the APIHelper when the view loads and receive the API poke images and add them to the imagePokeGallery array.
         PokeAPIHelper.fetchAllImages { images in
             
             for _ in 0...100000{
@@ -38,11 +42,6 @@ class GalleryCollectionViewController: UICollectionViewController, UIImagePicker
             self.imagePokeGallery = images
             self.collectionView.reloadData()
         }
-
-//        PokeAPIHelper.fetchPokeNames{ names in
-//            self.pokeNameList = names
-//            
-//        }
 
     }
 
@@ -66,24 +65,24 @@ class GalleryCollectionViewController: UICollectionViewController, UIImagePicker
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        
+        //return the number of collection view cells as that of items in imagePokeGallery.
         return imagePokeGallery.count
         
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "poke", for: indexPath) as! GalleryCollectionViewCell
-        
+        //set spinner animation
         cell.spinner.startAnimating()
         for _ in 0...100000{
             continue
         }
+        //set the array image to the cell's image
         DispatchQueue.main.async{
             cell.spinner.isHidden = true
             cell.image.image = self.imagePokeGallery[indexPath.row]
         }
 
-        //cell.pokeName.text = self.pokeNameList[indexPath.row]
         cell.backgroundColor = .white
         return cell
     }
